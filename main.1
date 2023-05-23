@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+struct Phone {
+    std::string model;
+    int price;
+    int year;
+
+    Phone() {
+        model = "";
+        price = 0;
+        year = 0;
+    }
+
+    Phone(const std::string& _model, int _price, int _year = 0) {
+        model = _model;
+        price = _price;
+        year = _year;
+    }
+
+    Phone(const Phone& other) {
+        model = other.model;
+        price = other.price;
+        year = other.year;
+    }
+};
+
+int main() {
+
+    Phone defaultPhone;
+    std::cout << "Default Phone - Model: " << defaultPhone.model << ", Price: $" << defaultPhone.price << ", Year: " << defaultPhone.year << std::endl;
+
+    Phone customPhone("Samsung Galaxy S20", 899);
+    std::cout << "Custom Phone - Model: " << customPhone.model << ", Price: $" << customPhone.price << ", Year: " << customPhone.year << std::endl;
+
+    Phone copiedPhone = customPhone;
+    std::cout << "Copied Phone - Model: " << copiedPhone.model << ", Price: $" << copiedPhone.price << ", Year: " << copiedPhone.year << std::endl;
+
+    std::cout << "Success" << std::endl;
+    return 0;
+}
